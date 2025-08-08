@@ -1,6 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 
-import type { AppService } from './app.service';
+// biome-ignore lint/style/useImportType: NestJS DI requires importing the actual class, not just the type
+import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
