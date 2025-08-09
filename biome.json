@@ -43,6 +43,9 @@
       "attributePosition": "auto",
       "bracketSpacing": true,
       "semicolons": "always"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
   "assist": {
