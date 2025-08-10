@@ -1,4 +1,7 @@
 import { Test, type TestingModule } from '@nestjs/testing';
+import { DEFAULT_USERS_PAGE_INDEX } from 'src/users/users.config';
+import { UsersController } from 'src/users/users.controller';
+import { UsersService } from 'src/users/users.service';
 
 import {
   MockResourceNotFoundException,
@@ -6,9 +9,6 @@ import {
   mockUser,
   mockUsersService,
 } from './__mocks__/users.service.mock';
-import { DEFAULT_USERS_PAGE_INDEX } from './users.config';
-import { UsersController } from './users.controller';
-import { UsersService } from './users.service';
 
 describe('UsersController', () => {
   let controller: UsersController;

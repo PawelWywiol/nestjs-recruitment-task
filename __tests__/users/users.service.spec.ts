@@ -1,15 +1,15 @@
 import { Test, type TestingModule } from '@nestjs/testing';
 
 import { mockUser } from './__mocks__/users.service.mock';
-import { DEFAULT_USERS_PAGE_INDEX, USERS_PER_PAGE } from './users.config';
-import { UsersService } from './users.service';
 
 import {
   InvalidParameterException,
   ResourceNotFoundException,
-} from '../errorHandler/exceptions/custom-exceptions';
+} from '../../src/errorHandler/exceptions/custom-exceptions';
+import { PrismaService } from '../../src/prisma/prisma.service';
+import { DEFAULT_USERS_PAGE_INDEX, USERS_PER_PAGE } from '../../src/users/users.config';
+import { UsersService } from '../../src/users/users.service';
 import { mockPrismaService } from '../prisma/__mocks__/prisma.service.mock';
-import { PrismaService } from '../prisma/prisma.service';
 
 describe('UsersService', () => {
   let service: UsersService;
