@@ -1,4 +1,4 @@
-import { DEFAULT_USERS_PAGE_INDEX, USERS_PER_PAGE } from "src/users/users.config";
+import { DEFAULT_USERS_PAGE_INDEX, USERS_PER_PAGE } from 'src/users/users.config';
 
 export const mockUser = {
   id: 1,
