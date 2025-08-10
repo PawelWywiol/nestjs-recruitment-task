@@ -1,6 +1,6 @@
 {
   "name": "nestjs-recruitment-task",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "",
   "private": true,
@@ -95,8 +95,13 @@
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/src/$1"
     },
-    "modulePaths": ["<rootDir>"],
-    "moduleDirectories": ["node_modules", "__tests__"]
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "__tests__"
+    ]
   },
   "config": {
     "commitizen": {
