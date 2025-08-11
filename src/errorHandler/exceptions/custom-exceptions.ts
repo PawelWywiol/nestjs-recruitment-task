@@ -18,7 +18,7 @@ export class ResourceAlreadyExistsException extends HttpException {
 }
 
 export class ValidationFailedException extends HttpException {
-  constructor(errors: Record<string, string[]>) {
+  constructor(errors: Record<string, string[] | undefined>) {
     super(
       {
         statusCode: HttpStatus.BAD_REQUEST,
