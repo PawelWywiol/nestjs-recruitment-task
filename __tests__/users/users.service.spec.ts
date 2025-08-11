@@ -11,6 +11,10 @@ import { DEFAULT_USERS_PAGE_INDEX, USERS_PER_PAGE } from '../../src/users/users.
 import { UsersService } from '../../src/users/users.service';
 import { mockPrismaService } from '../prisma/__mocks__/prisma.service.mock';
 
+const TEST_FIND_ALL_NEGATIVE_INDEX = -1;
+const TEST_FIND_ALL_NULL_INDEX = 0;
+const TEST_FIND_ALL_FLOAT_INDEX = 1.5;
+
 describe('UsersService', () => {
   let service: UsersService;
 
@@ -71,15 +75,27 @@ describe('UsersService', () => {
     });
 
     it('should throw InvalidParameterException for invalid page', async () => {
-      await expect(service.findAll(-1)).rejects.toThrow(InvalidParameterException);
-      await expect(service.findAll(0)).rejects.toThrow(InvalidParameterException);
-      await expect(service.findAll(1.5)).rejects.toThrow(InvalidParameterException);
+      await expect(service.findAll(TEST_FIND_ALL_NEGATIVE_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
+      await expect(service.findAll(TEST_FIND_ALL_NULL_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
+      await expect(service.findAll(TEST_FIND_ALL_FLOAT_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
     });
 
     it('should throw InvalidParameterException for invalid itemsPerPage', async () => {
-      await expect(service.findAll(1, -1)).rejects.toThrow(InvalidParameterException);
-      await expect(service.findAll(1, 0)).rejects.toThrow(InvalidParameterException);
-      await expect(service.findAll(1, 1.5)).rejects.toThrow(InvalidParameterException);
+      await expect(service.findAll(1, TEST_FIND_ALL_NEGATIVE_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
+      await expect(service.findAll(1, TEST_FIND_ALL_NULL_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
+      await expect(service.findAll(1, TEST_FIND_ALL_FLOAT_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
     });
   });
 
@@ -105,9 +121,15 @@ describe('UsersService', () => {
     });
 
     it('should throw InvalidParameterException for invalid id', async () => {
-      await expect(service.findOne(-1)).rejects.toThrow(InvalidParameterException);
-      await expect(service.findOne(0)).rejects.toThrow(InvalidParameterException);
-      await expect(service.findOne(1.5)).rejects.toThrow(InvalidParameterException);
+      await expect(service.findOne(TEST_FIND_ALL_NEGATIVE_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
+      await expect(service.findOne(TEST_FIND_ALL_NULL_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
+      await expect(service.findOne(TEST_FIND_ALL_FLOAT_INDEX)).rejects.toThrow(
+        InvalidParameterException,
+      );
     });
   });
 });

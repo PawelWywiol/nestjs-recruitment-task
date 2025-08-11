@@ -1,18 +1,17 @@
+import type { PaginatedResponse } from 'src/types/pagination';
 import { DEFAULT_USERS_PAGE_INDEX, USERS_PER_PAGE } from 'src/users/users.config';
+import type { UserPayload } from 'src/users/users.types';
 
-export const mockUser = {
+export const mockUser: UserPayload = {
   id: 1,
   firstName: 'John',
   lastName: 'Doe',
   initials: 'JD',
   email: 'john.doe@example.com',
   status: 'ACTIVE',
-  createdAt: new Date(),
-  updatedAt: new Date(),
-  addresses: [],
 };
 
-export const mockPaginatedResponse = {
+export const mockPaginatedResponse: PaginatedResponse<UserPayload> = {
   items: [mockUser],
   page: DEFAULT_USERS_PAGE_INDEX,
   pages: 1,
@@ -30,7 +29,7 @@ export const mockUsersService = {
     }
     throw new Error(`User with ID '${id}' was not found`);
   }),
-};
+} as const;
 
 export class MockResourceNotFoundException extends Error {
   constructor(resourceName: string, id?: string | number) {

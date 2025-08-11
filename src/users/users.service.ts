@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import type { PaginatedResponse } from 'src/types/pagination';
 
 import { GET_USERS_PAYLOAD, USERS_PER_PAGE } from './users.config';
+import type { UserPayload } from './users.types';
 
 import {
   InvalidParameterException,
@@ -11,9 +13,12 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) {}
 
-  async findAll(page: number, itemsPerPage = USERS_PER_PAGE) {
+  async findAll(
+    page: number,
+    itemsPerPage: number = USERS_PER_PAGE,
+  ): Promise<PaginatedResponse<UserPayload>> {
     if (!Number.isInteger(page) || page <= 0) {
       throw new InvalidParameterException('page', 'positive integer');
     }
@@ -37,7 +42,7 @@ export class UsersService {
     return { items, page, pages: Math.ceil(total / itemsPerPage) };
   }
 
-  async findOne(id: number) {
+  async findOne(id: number): Promise<UserPayload> {
     if (!Number.isInteger(id) || id <= 0) {
       throw new InvalidParameterException('id', 'positive integer');
     }

@@ -10,6 +10,8 @@ import {
   mockUsersService,
 } from './__mocks__/users.service.mock';
 
+const TEST_FIND_ALL_UNDEFINED_PAGE_INDEX = 999;
+
 describe('UsersController', () => {
   let controller: UsersController;
 
@@ -75,9 +77,13 @@ describe('UsersController', () => {
     });
 
     it('should handle not found error', async () => {
-      mockUsersService.findOne.mockRejectedValue(new MockResourceNotFoundException('User', 999));
+      mockUsersService.findOne.mockRejectedValue(
+        new MockResourceNotFoundException('User', TEST_FIND_ALL_UNDEFINED_PAGE_INDEX),
+      );
 
-      await expect(controller.findOne(999)).rejects.toThrow('User with ID');
+      await expect(controller.findOne(TEST_FIND_ALL_UNDEFINED_PAGE_INDEX)).rejects.toThrow(
+        'User with ID',
+      );
     });
   });
 });

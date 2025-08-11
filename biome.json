@@ -31,7 +31,20 @@
     "attributePosition": "auto",
     "bracketSpacing": true
   },
-  "linter": { "enabled": true, "rules": { "recommended": true } },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": "error",
+      "security": "error",
+      "performance": "info",
+      "nursery": {
+        "recommended": true,
+        "useExplicitType": "on",
+        "noMagicNumbers": "error"
+      }
+    }
+  },
   "javascript": {
     "formatter": {
       "jsxQuoteStyle": "double",

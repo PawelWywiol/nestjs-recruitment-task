@@ -13,4 +13,4 @@ export const mockPrismaService = {
   },
   $connect: jest.fn(),
   $disconnect: jest.fn(),
-};
+} as const;

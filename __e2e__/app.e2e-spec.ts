@@ -1,8 +1,11 @@
 import type { INestApplication } from '@nestjs/common';
 import { Test, type TestingModule } from '@nestjs/testing';
 import { AppModule } from 'src/app.module';
+// biome-ignore lint/performance/noNamespaceImport: Required for supertest tests
 import * as request from 'supertest';
 import type { App } from 'supertest/types';
+
+import { SUCCESS_RESPONSE_CODE, SUCCESS_RESPONSE_TEXT } from './app.e2e.config';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication<App>;
@@ -17,6 +20,9 @@ describe('AppController (e2e)', () => {
   });
 
   it('/ (GET)', () => {
-    return request(app.getHttpServer()).get('/').expect(200).expect('Hello World!');
+    return request(app.getHttpServer())
+      .get('/')
+      .expect(SUCCESS_RESPONSE_CODE)
+      .expect(SUCCESS_RESPONSE_TEXT);
   });
 });

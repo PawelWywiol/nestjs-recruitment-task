@@ -2,6 +2,7 @@ import { Injectable, type OnModuleDestroy, type OnModuleInit } from '@nestjs/com
 // biome-ignore lint/style/useImportType: NestJS DI requires importing the actual class
 import { ConfigService } from '@nestjs/config';
 import { PrismaClient } from '@prisma/client';
+import type { JsPromise } from '@prisma/client/runtime/library';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
@@ -15,11 +16,11 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
     });
   }
 
-  async onModuleInit() {
+  async onModuleInit(): JsPromise<void> {
     await this.$connect();
   }
 
-  async onModuleDestroy() {
+  async onModuleDestroy(): JsPromise<void> {
     await this.$disconnect();
   }
 }
