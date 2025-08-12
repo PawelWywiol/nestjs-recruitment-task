@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+### [0.0.3](https://github.com/PawelWywiol/nestjs-recruitment-task/compare/v0.0.2...v0.0.3) (2025-08-12)
+
+
+### Features
+
+* add Docker and PostgreSQL setup, including environment configuration and health checks ([34f32ff](https://github.com/PawelWywiol/nestjs-recruitment-task/commit/34f32ff256b77e88a163ba878fba8274933a0916))
+* implement users addresses module with CRUD operations ([37f51f9](https://github.com/PawelWywiol/nestjs-recruitment-task/commit/37f51f996f02260023facdf2af7f98966dfefd2f))
+
+
+### Bug Fixes
+
+* update biome rules ([ce21486](https://github.com/PawelWywiol/nestjs-recruitment-task/commit/ce21486cdde3d4c4c40441ced1fbd1de967b0d77))
+
 ### 0.0.2 (2025-08-10)
 
 
